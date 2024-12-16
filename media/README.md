@@ -2,68 +2,87 @@
 
 # README.md
 
-## Dataset Analysis and Visualization
+## Dataset Analysis Report
 
 ### Overview
-This document outlines the analysis of a dataset containing 2652 entries with 8 columns. The dataset appears to be related to media titles categorized by language, type, ratings (overall, quality, repeatability), and associated creators. 
+This document outlines the analysis conducted on a dataset comprising 2,652 entries across 8 columns. The dataset contains various attributes including date, language, type, title, and ratings (overall, quality, repeatability).
 
-### Data Description
-The dataset has the following columns:
-- **date**: The release date of the title (with some missing values).
-- **language**: The language of the title.
-- **type**: Type of media (e.g., movie, series).
-- **title**: The title of the work.
-- **by**: Creator or author of the work (with missing values).
-- **overall**: Overall rating of the title (integer).
-- **quality**: Quality rating of the title (integer).
-- **repeatability**: Repeatability rating of the title (integer).
+### Dataset Columns
+- **date**: The date of entry (non-null entries: 2553).
+- **language**: The language in which the content is available (all entries present).
+- **type**: The type of content (e.g., movie, TV series, etc.) (all entries present).
+- **title**: The title of the content (all entries present).
+- **by**: The creator or author (non-null entries: 2390).
+- **overall**: Overall rating (integer).
+- **quality**: Quality rating (integer).
+- **repeatability**: Repeatability rating (integer).
 
 ### Summary Statistics
-#### Numeric Columns
-- **Overall Ratings**: Range from 1 to 5, with a mean of approximately 3.05.
-- **Quality Ratings**: Mean of approximately 3.21, with similar range; a bit higher than overall ratings.
-- **Repeatability Ratings**: Lower mean of around 1.49 with a max of 3, indicating titles typically aren't highly rated for repeat viewing.
+- **Overall Ratings**: Mean = 3.05, Std. Dev = 0.76, Range = [1, 5]
+- **Quality Ratings**: Mean = 3.21, Std. Dev = 0.80, Range = [1, 5]
+- **Repeatability Ratings**: Mean = 1.49, Std. Dev = 0.60, Range = [1, 3]
 
-#### Categorical Columns
-- **Dates**: A few dates have a notably higher number of entries, notably 21-May-06 (8 entries).
-- **Languages**: Predominantly in English (1306 entries), followed by Tamil (718) and Telugu (338).
-- **Types**: The majority of entries are movies (2211), with fewer entries for TV series, fiction, and non-fiction.
-- **Titles**: "Kanda Naal Mudhal" has the highest number of entries (9), indicating it might be a popular choice or frequently referenced title.
+### Categorical Insights
+- **Dates** with the highest number of entries are:
+  - 21-May-06: 8
+  - 20-May-06: 7
+- **Languages**:
+  - English (1306 entries), Tamil (718), Telugu (338), Hindi (251).
+- **Content Types**:
+  - Movie: 2211
+  - Fiction: 196
+  - TV series: 112
 
-### Insights & Trends
-- The average ratings suggest general satisfaction with the titles, but the variability indicated by standard deviations points towards a mix of very high and low ratings.
-- The high correlation between overall and quality ratings (approximately 0.83) implies that a title rated well in terms of quality likely received a good overall rating as well.
-- The low repeatability mean and lower correlation with quality & overall ratings indicate potential difficulties in keeping audiences engaged long-term.
+### Missing Values
+- Missing values in `date`: 99 entries.
+- Missing values in `by`: 262 entries.
+
+### Correlation Analysis
+- Strong positive correlation between `overall` and `quality` (0.83).
+- Moderate correlation between `overall` and `repeatability` (0.51).
+
+### Insights
+1. **Language Popularity**: English is the dominant language in the dataset, followed by Tamil and Telugu.
+2. **Content Type Distribution**: The dataset is heavily skewed towards movies, suggesting that this is the most common type of content represented.
+3. **Quality Ratings**: The overall ratings are generally positive, indicating that users predominantly view the contents favorably.
+4. **Creator Information**: A notable number of entries are credited to well-known figures; however, there is a significant number of missing data regarding authors.
+   
+### Trends
+- There is consistent content available, especially in English.
+- There seems to be a trend towards higher quality and overall ratings over time but requires visual representation for deeper insights.
 
 ### Potential Outliers
-- There are missing values in the `by` column (262 entries), which could affect analysis and trends regarding authorship.
-- The `date` column has missing values too (99 entries); filling in these values could provide more insights into time trends.
-- Investigating entries with unusually high or low ratings could reveal titles that significantly deviate from the expected ratings pattern.
+- There are some titles that received disproportionate attention (e.g., "Kanda Naal Mudhal" with 9 entries) but may not reflect the general population of the ratings.
 
 ### Visualization
-To visualize the trends and insights found during the analysis, PNG files of the following charts are included:
-1. **Summary Statistics of Numeric Columns**: Bar graph comparing the distributions of overall, quality, and repeatability ratings.
-2. **Categorical Distribution**: Pie charts displaying the distribution of languages, types, and a bar graph showing the most popular titles.
-3. **Correlation Heatmap**: A heatmap displaying the correlation matrix for numeric ratings.
+Various charts and plots have been generated to visualize the trends, distributions, and correlations identified during the analysis. These visualizations are saved as PNG files and can provide a clearer understanding of the data structure and trends.
 
-### Files
-- `summary_statistics.png`: A visual representation of summary statistics for the numeric columns.
-- `categorical_distribution.png`: Categorical distribution of languages, types, and titles.
-- `correlation_matrix.png`: Heatmap showing correlations between overall, quality, and repeatability ratings.
+### Files Included
+- `overall_quality_correlation.png`: Correlation between overall and quality ratings.
+- `language_distribution.png`: Distribution of entries across different languages.
+- `content_type_distribution.png`: Breakdown of the types of content in the dataset.
+- `ratings_distributions.png`: Distribution of overall, quality, and repeatability ratings.
 
 ---
 
-# Generated Visualizations
+# Visualization Files
 
-### 1. Summary Statistics of Numeric Columns
-![summary_statistics](summary_statistics.png)
+1. **overall_quality_correlation.png**
 
-### 2. Categorical Distribution
-![categorical_distribution](categorical_distribution.png)
+![Overall Quality Correlation](overall_quality_correlation.png)
 
-### 3. Correlation Heatmap
-![correlation_matrix](correlation_matrix.png)
+2. **language_distribution.png**
+
+![Language Distribution](language_distribution.png)
+
+3. **content_type_distribution.png**
+
+![Content Type Distribution](content_type_distribution.png)
+
+4. **ratings_distributions.png**
+
+![Ratings Distributions](ratings_distributions.png)
 
 ---
 
-This analysis provides insights into trends in media titles, including ratings and categorical breakdowns, highlighting areas for potential focus such as missing data remediation and detailed outlier investigation.
+This document serves to encapsulate the findings from the dataset analysis and highlights key areas for further exploration and potential study. The visualizations help to reinforce the insights derived from the data, aiding in a clear understanding of the dataset's behavior and characteristics.
