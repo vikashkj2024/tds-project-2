@@ -23,7 +23,7 @@ directory_name = datasetCSV.split('.')[0]
 
 #Reading the data from the csv into pandas dataframe
 try:
-    df = pd.read_csv(datasetCSV, encoding='latin1')
+    df = pd.read_csv(datasetCSV,delimiter=';', encoding='latin1')
 except UnicodeDecodeError:
     print("Failed to decode file. Try another encoding like 'utf-16'.")
     sys.exit(1)
