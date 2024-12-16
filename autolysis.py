@@ -76,7 +76,7 @@ response_analyze = requests.post(
         json={
                 "model": "gpt-4o-mini",
                 "messages": [
-                        {"role": "system" , "content": "To analyze and visualize the given data. Create README.md and png files for the same."},
+                        {"role": "system" , "content": "To analyze the given data."},
                         {"role": "user", "content": f"Analyze the following dataset and provide a detailed analysis, including insights, trends, and potential outliers:\n\n{analysis_output}"  }
                 ]
 }
@@ -85,7 +85,7 @@ response_analyze = requests.post(
 
 
 analysis = response_analyze.json()
-
+#print(analysis)
 if 'choices' in analysis and len(analysis['choices']) > 0:
     analysis_text = analysis['choices'][0]['message']['content']
 else:
